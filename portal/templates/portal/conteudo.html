@@ -1,0 +1,8 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}{{ conteudo.titulo }} - Nossa Página{% endblock %}
+
+{% block conteudo %}
+    <!-- Renderiza o HTML vindo do banco de dados para o conteúdo acessado -->
+    {{ conteudo.conteudo_html|safe }}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Nossa Página - Adrieli & Jammille{% endblock %}</title>
+    
+    <!-- CSS e Favicon usando a tag static do Django -->
+    <link rel="stylesheet" href="{% static 'portal/css/estilo.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'portal/img/favicon.ico' %}">
+</head>
+<body style="background-image: url('{% static 'portal/img/fundo.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-color: #fce4ec;">
+
+    <header id="topo">
+        <h1>Nossa Página</h1>
+    </header>
+
+    <div id="container-principal">
+        
+        <!-- Menu Dinâmico carregado via Django Admin -->
+        <nav id="menu">
+            {% for item in menu_itens %}
+                {% if item.tipo_destino == 'INTERNO' and item.conteudo %}
+                    <a href="{% url 'detalhe_conteudo' slug=item.conteudo.slug %}" class="btn-navegacao">{{ item.titulo }}</a>
+                {% elif item.tipo_destino == 'EXTERNO' %}
+                    <a href="{{ item.url_externa }}" target="_blank" class="btn-navegacao">{{ item.titulo }}</a>
+                {% endif %}
+            {% endfor %}
+        </nav>
+
+        <!-- Área onde o conteúdo cadastrado no banco de dados será renderizado -->
+        <main id="conteudo">
+            {% block conteudo %}
+            {% endblock %}
+        </main>
+
+    </div>
+
+    <footer id="rodape">
+        <p>Desenvolvido por Adrieli e Jammille.</p>
+    </footer>
+
+</body>
+</html>

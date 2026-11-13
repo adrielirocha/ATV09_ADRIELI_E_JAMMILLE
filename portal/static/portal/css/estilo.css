@@ -1,0 +1,246 @@
+/* Adrieli Rocha Moreira e Jammille da Silva Oliveira | ATV06 | Turma: 513 */
+
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Garante cálculo preciso dos espaçamentos de bordas e paddings */
+}
+
+/* REQUISITO: Imagens Responsivas - impede vazamento e quebras de viewport */
+.imagem-responsiva {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* Topo do site utilizando o seletor da tag semântica header */
+header#topo {
+    background-color: #f06292;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 2px solid #e91e63;
+}
+
+/* REQUISITO: Alinhamento Estrutural Avançado utilizando CSS Flexbox */
+#container-principal {
+    display: flex;             /* Ativa o comportamento Flexbox no container mestre */
+    flex-direction: row;       /* Define que os filhos (menu e conteúdo) fiquem lado a lado como colunas */
+    min-height: 85vh;          /* Ocupa pelo menos 85% da altura da janela do navegador */
+}
+
+/* Caixa de Navegação Semântica <nav> */
+nav#menu {
+    width: 220px;                             /* Largura fixa base para telas desktop */
+    background-color: rgba(248, 203, 212, 0.85); 
+    padding: 15px;
+    display: flex;                            /* Subcontainer flex para organizar os botões verticalmente */
+    flex-direction: column;                   /* Alinha botões de cima para baixo */
+    gap: 8px;                                 /* Espaçamento interno padronizado entre os botões */
+    border-right: 2px solid #f06292;
+    flex-shrink: 0;                           /* Impede o menu de espremer em telas médias */
+}
+
+/* Botões do menu (100% quadrados conforme ATV05) */
+.btn-navegacao {
+    background-color: white;
+    color: #c2185b;
+    border: 2px solid #f06292;
+    padding: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: bold;
+    border-radius: 0px; 
+    transition: background 0.3s ease;
+}
+
+.btn-navegacao:hover {
+    background-color: #f06292;
+    color: white;
+}
+
+/* Área de injeção de conteúdos dinâmicos <main> */
+main#conteudo {
+    flex: 1;                                  /* Faz o conteúdo expandir e ocupar todo o espaço restante do eixo flex */
+    padding: 25px;
+    background-color: rgba(255, 240, 245, 0.85); 
+}
+
+/* Rodapé utilizando o seletor da tag semântica footer */
+footer#rodape {
+    background-color: #f06292;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    clear: both;
+}
+
+/* Caixas internas de conteúdo */
+.curriculo, .caixa-conteudo, .caixa-conteudo-make {
+    width: 90%;
+    max-width: 800px;                         /* Define um limite máximo elegante para telas largas */
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.caixa-conteudo-make {
+    border: 1px solid #d8a7b1;
+}
+
+.titulo {
+    background-color: white;
+    padding: 5px;
+    margin-top: 0;
+    border-bottom: 2px solid black;
+    font-size: 20px;
+}
+
+.texto {
+    color: #333;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+#identificacao {
+    border-left: 5px solid black;
+}
+
+#foto {
+    float: right;
+    width: 140px;
+    height: 140px;
+    border: 1px solid black;
+    margin-left: 15px;
+}
+
+.link-adrieli {
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link-adrieli:hover {
+    text-decoration: underline;
+}
+
+.texto-principal {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+    border: 1px solid black;
+    border-top: none;
+    border-bottom: none;
+}
+
+.centralizar {
+    text-align: center;
+    padding: 10px;
+}
+
+#titulo-tema {
+    background-color: pink;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+#bloco-imagem {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#rodape-tema {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: pink;
+}
+
+#bloco-imagem img {
+    height: 150px;
+    width: auto;
+}
+
+.corpo-jammille {
+    margin: 10px;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #e7e3e3;
+}
+
+.titulo-secao {
+    font-size: 20px;
+    color: rgb(201, 49, 163);
+    border-bottom: 1px solid #e7e3e3;
+    padding-bottom: 3px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.texto-negrito {
+    font-weight: bold;
+}
+
+.titulo-rosa {
+    font-size: 22px;
+    color: #c2185b;
+    border-bottom: 2px solid #fce4ec;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+}
+
+.tabela-produtos {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.celula-make {
+    border: 1px solid #d8a7b1;
+    padding: 10px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   REQUISITO OBRIGATÓRIO: DESIGN RESPONSIVO VIA MEDIA QUERIES (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* Modifica a direção do Flexbox mestre de linha (lado a lado) para coluna (empilhado) */
+    #container-principal {
+        flex-direction: column; 
+    }
+
+    /* Redimensiona o menu lateral para ocupar 100% da largura em dispositivos móveis no topo */
+    nav#menu {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #f06292;
+        padding: 10px;
+    }
+
+    /* Modifica o conteúdo principal para esticar a 100% da largura útil disponível */
+    main#conteudo {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Ajusta as caixas internas para ocuparem melhor o espaço limitado do celular */
+    .curriculo, .caixa-conteudo, .caixa-conteudo-make {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Remove o float da foto de perfil para evitar que o texto fique espremido lateralmente */
+    #foto {
+        float: none;
+        display: block;
+        margin: 0 auto 15px auto; /* Centraliza a foto horizontalmente */
+    }
+}

@@ -1,0 +1,17 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}Início - Nossa Página{% endblock %}
+
+{% block conteudo %}
+    {% if conteudo %}
+        {{ conteudo.conteudo_html|safe }}
+    {% else %}
+        <!-- Conteúdo padrão de apoio caso nada tenha sido cadastrado ainda -->
+        <section id="capa" class="secao-conteudo">
+            <div class="caixa-imagem-fundo-completo" style="width: 100%; height: 100%; text-align: center; overflow: hidden; position: relative;">
+                <img src="/static/portal/img/capa.jpg" alt="Kuromi e My Melody" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <h2 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; background-color: rgba(255, 255, 255, 0.8); padding: 15px 30px; border-radius: 8px; color: #c2185b;">Bem-vindos</h2>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
